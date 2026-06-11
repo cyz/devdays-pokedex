@@ -27,7 +27,7 @@ Você irá descrever a regra de negócio do nosso utilitário e do algoritmo de 
 **Passos:**
 
 1. Abra uma nova janela de Chat e mude para o **Modo Agente (Agent Mode)**.
-2. Invoque o agente Supervisor digitando o seu nome ou use o `@` (por exemplo: escrevendo `@TDD Supervisor` ou selecionando-o).
+2. Selecione o agente **TDD Supervisor** no menu de seleção de agentes de chat (por exemplo, clicando no seletor de agentes ou digitando `@TDD Supervisor`).
 3. Envie o seguinte prompt de instruções para ele:
    ```markdown
    Crie o módulo utilitário do construtor de equipes em `src/lib/teamUtils.ts` seguindo o ciclo TDD:
@@ -35,15 +35,9 @@ Você irá descrever a regra de negócio do nosso utilitário e do algoritmo de 
    - `removeFromTeam(team: Pokemon[], pokemonId: number): Pokemon[]`
    - `getTypeCoverage(team: Pokemon[]): string[]` — retorna todos os tipos únicos cobertos pela equipe
    - `getCoverageGaps(team: Pokemon[]): string[]` — retorna os tipos NÃO cobertos por nenhum membro da equipe (veja a lista completa de tipos disponíveis no arquivo `src/lib/constants.ts`)
-
-   Use tipos e mocks de teste limpos. Execute o ciclo completo!
    ```
 4. **Assista à Orquestração:**
-   - O **TDD Supervisor** chamará o **TDD Red** para gerar os testes falhando em `src/lib/teamUtils.test.ts`.
-   - Em seguida, ele chamará o executor de testes para validar o erro.
-   - Depois, o **TDD Green** entrará em campo criando as funções em `src/lib/teamUtils.ts`.
-   - O executor de testes rodará de novo para garantir o "verde".
-   - Por fim, o **TDD Refactor** poderá sugerir ajustes elegantes.
+   - O **TDD Supervisor** criará o plano e gerenciará os testes e a implementação das funções de maneira autônoma com você!
 5. Verifique manualmente rodando os testes no seu terminal para comemorar:
    ```bash
    npm test
@@ -59,18 +53,15 @@ Com a lógica utilitária testada e aprovada, desenvolva o componente visual.
 
 **Passos:**
 
-1. Mude para o **Modo de Planejamento (Plan Mode)** no chat do Copilot.
+1. Alterne para o **Modo Agente (Agent Mode)** no painel do Chat.
 2. Envie o prompt:
    ```markdown
-   Planeje e implemente um recurso de Construtor de Equipes (Team Builder) integrado à Pokédex:
-   - Um botão "➕ Adicionar à Equipe" em cada PokemonCard (desativado quando a equipe já tiver 6 Pokémon ou o Pokémon já estiver na equipe)
-   - Um Painel de Equipe persistente (barra inferior ou painel lateral) mostrando as imagens (sprites) de até 6 Pokémon
-   - Visualização de cobertura de tipos — mostra quais tipos a equipe cobre e quais são as lacunas (gaps) calculadas
-   - Um botão "Limpar Equipe" (Clear Team)
-   Use as funções em src/lib/teamUtils.ts para toda a lógica.
+   Implemente um recurso de Construtor de Equipes (Team Builder) integrado à Pokédex:
+   - Um botão "➕ Adicionar à Equipe" em cada PokemonCard (desativado quando a equipe tiver 6 Pokémon ou o Pokémon já estiver nela)
+   - Um Painel de Equipe mostrando as fotos de até 6 Pokémon e um botão para "Limpar Equipe"
+   - Mostre os tipos cobertos e as lacunas calculadas usando as funções do `src/lib/teamUtils.ts`
    ```
-3. Revise e faça ajustes no plano sugerido (pergunte: *"Como o painel de times irá se integrar com o layout atual?"*)
-4. Clique em **Implement** (Implementar) no Chat e assista ao agente integrar com perfeição visual!
+3. Teste o fluxo de montar equipe e certifique-se de que a cobertura de tipos está sendo exibida e atualizada.
 
 ✅ **Resultado:** Os usuários agora podem montar e analisar equipes de Pokémon com relatórios instantâneos de fraquezas e coberturas de tipo.
 

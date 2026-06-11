@@ -93,11 +93,7 @@ O agente é capaz de abrir seu aplicativo em execução no navegador integrado e
 1. Certifique-se de que o comando `npm run dev` está rodando
 2. No Chat (em modo Agente / Agent Mode), envie o prompt:
    ```
-   Abra o aplicativo em http://localhost:3000 no navegador. Teste-o sistematicamente como um usuário crítico:
-   1. Faça buscas por termo exato, termo parcial e por número de ID.
-   2. Interaja com a paginação clicando no botão "Carregar Mais" para ver se novos Pokémon aparecem de forma consistente.
-   3. Teste a abertura e fechamento dos detalhes de um Pokémon ao clicar em seu card.
-   4. Gere um relatório detalhado sobre usabilidade, problemas de layout, bugs de carregamento e liste as principais funcionalidades vitais que estão ausentes.
+   Teste a Pokédex como um dogfooder crítico, dando um feedback sincero sobre o quão divertida ela é de usar e o que está faltando.
    ```
 3. Assista ao agente iniciar o navegador, clicar pelo aplicativo e gerar um relatório completo
 4. Salve como uma habilidade reutilizável:
