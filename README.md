@@ -43,7 +43,7 @@ Starting from a working Next.js Pokédex with search, filters, and a type chart,
 
 ```bash
 # 1. Use this template or clone
-git clone https://github.com/OWNER/REPO my-pokedex
+git clone https://github.com/cyz/devdays-pokedex my-pokedex
 cd my-pokedex
 
 # 2. Install dependencies
