@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VS Code GitHub Copilot Agent Lab | Pokédex Edition</title>
+    <title>VS Code GitHub Copilot Agent Lab| Edição Pokédex</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
             </a>
             <nav class="header-nav">
                 <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
-                <button class="nav-btn" id="prevBtn" disabled>← Previous</button>
-                <button class="nav-btn" id="nextBtn">Next →</button>
+                <button class="nav-btn" id="prevBtn" disabled>← Anterior</button>
+                <button class="nav-btn" id="nextBtn">Próximo →</button>
             </nav>
         </div>
     </header>
@@ -30,7 +30,7 @@
     <div class="layout">
         <aside class="sidebar">
             <div class="sidebar-section">
-                <div class="sidebar-title">Lab Parts</div>
+                <div class="sidebar-title">Partes do Laboratório</div>
                 <nav id="stepNav"></nav>
             </div>
         </aside>
@@ -38,11 +38,11 @@
         <main class="main">
             <article class="content">
                 <div id="markdown-content" class="markdown">
-                    <div class="loading">Loading content</div>
+                    <div class="loading">Carregando conteúdo...</div>
                 </div>
                 <nav class="nav-footer">
-                    <a href="#" class="nav-footer-btn disabled" id="prevLink">← Previous</a>
-                    <a href="#" class="nav-footer-btn" id="nextLink">Next →</a>
+                    <a href="#" class="nav-footer-btn disabled" id="prevLink">← Anterior</a>
+                    <a href="#" class="nav-footer-btn" id="nextLink">Próximo →</a>
                 </nav>
             </article>
         </main>
@@ -51,13 +51,13 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <script>
         const steps = [
-            { id: 'guide',           file: 'GUIDE.md',           title: 'Quick Reference',             number: '📚' },
-            { id: '00-overview',     file: '00-overview.md',     title: 'Overview & Checklist',         number: '00' },
-            { id: '01-setup',        file: '01-setup.md',        title: 'Setup & Context Engineering',  number: '01' },
-            { id: '02-design',       file: '02-design.md',       title: 'Design-First Frontend',        number: '02' },
-            { id: '03-favorites',    file: '03-favorites.md',    title: 'Favorites & Discovery',        number: '03' },
-            { id: '04-team-builder', file: '04-team-builder.md', title: 'Team Builder',                 number: '04' },
-            { id: '05-complete',     file: '05-complete.md',     title: '🎉 Complete!',                 number: '🎉' },
+            { id: 'guide',           file: 'GUIDE.md',           title: 'Referência Rápida',           number: '📚' },
+            { id: '00-overview',     file: '00-overview.md',     title: 'Visão Geral & Checklist',     number: '00' },
+            { id: '01-setup',        file: '01-setup.md',        title: 'Configuração e Contexto',     number: '01' },
+            { id: '02-design',       file: '02-design.md',       title: 'Frontend Focado em Design',    number: '02' },
+            { id: '03-favorites',    file: '03-favorites.md',    title: 'Favoritos e Descoberta',      number: '03' },
+            { id: '04-team-builder', file: '04-team-builder.md', title: 'Montador de Equipes',           number: '04' },
+            { id: '05-complete',     file: '05-complete.md',     title: '🎉 Concluído!',                 number: '🎉' },
         ];
 
         // Use relative paths locally, GitHub raw in production (GitHub Pages)
@@ -119,7 +119,7 @@
                 prevLink.classList.remove('disabled');
             } else {
                 prevLink.classList.add('disabled');
-                prevLink.textContent = '← Previous';
+                prevLink.textContent = '← Anterior';
             }
 
             if (idx < steps.length - 1) {
@@ -128,7 +128,7 @@
                 nextLink.classList.remove('disabled');
             } else {
                 nextLink.classList.add('disabled');
-                nextLink.textContent = 'Next →';
+                nextLink.textContent = 'Próximo →';
             }
         }
 
@@ -223,8 +223,8 @@
                 const copyButton = document.createElement('button');
                 copyButton.type = 'button';
                 copyButton.className = 'code-copy-btn';
-                copyButton.textContent = 'Copy';
-                copyButton.setAttribute('aria-label', 'Copy code');
+                copyButton.textContent = 'Copiar';
+                copyButton.setAttribute('aria-label', 'Copiar código');
 
                 const liveRegion = document.createElement('span');
                 liveRegion.className = 'sr-only';
@@ -232,7 +232,7 @@
                 let resetTimer = null;
 
                 const resetButtonState = () => {
-                    copyButton.textContent = 'Copy';
+                    copyButton.textContent = 'Copiar';
                     copyButton.dataset.state = 'idle';
                     liveRegion.textContent = '';
                 };
@@ -244,13 +244,13 @@
                     }
                     try {
                         await copyCodeToClipboard(codeText);
-                        copyButton.textContent = 'Copied!';
+                        copyButton.textContent = 'Copiado!';
                         copyButton.dataset.state = 'copied';
-                        liveRegion.textContent = 'Code copied to clipboard';
+                        liveRegion.textContent = 'Código copiado para a área de transferência';
                     } catch {
-                        copyButton.textContent = 'Failed';
+                        copyButton.textContent = 'Falhou';
                         copyButton.dataset.state = 'error';
-                        liveRegion.textContent = 'Unable to copy code';
+                        liveRegion.textContent = 'Incapaz de copiar o código';
                     }
                     resetTimer = setTimeout(() => {
                         pendingCopyResetTimers.delete(resetTimer);
@@ -267,7 +267,7 @@
         async function loadContent() {
             const idx = getCurrentStepIndex();
             if (idx === -1) {
-                document.getElementById('markdown-content').innerHTML = '<p>Step not found. <a href="?step=00-overview">Go to Overview</a></p>';
+                document.getElementById('markdown-content').innerHTML = '<p>Passo não encontrado. <a href="?step=00-overview">Ir para Visão Geral</a></p>';
                 return;
             }
 
@@ -301,10 +301,10 @@
                 }
             } catch (error) {
                 document.getElementById('markdown-content').innerHTML = `
-                    <h1>Error Loading Content</h1>
-                    <p>Could not load <code>${step.file}</code>.</p>
-                    <p>If running locally, make sure you're serving this via a local server (e.g. VS Code Live Server or <code>npx serve docs</code>).</p>
-                    <p><a href="index.html">Return to home</a></p>
+                    <h1>Erro ao Carregar o Conteúdo</h1>
+                    <p>Não foi possível carregar <code>${step.file}</code>.</p>
+                    <p>Se estiver rodando localmente, certifique-se de que está servindo os arquivos por meio de um servidor local (ex: VS Code Live Server ou <code>npx serve docs</code>).</p>
+                    <p><a href="index.html">Retornar à página inicial</a></p>
                 `;
             }
         }

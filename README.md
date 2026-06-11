@@ -1,47 +1,49 @@
-# 🔴 Pokédex Agent Lab (TypeScript Starter)
+# 🔴 Pokédex Agent Lab
 
-This repo now follows an **agent-lab-typescript**-style starter layout: the app is intentionally minimal so developers build features step by step during the workshop.
+Projeto base em **Next.js + TypeScript** para o workshop de agentes, com uma Pokédex funcional e espaço preparado para evolução durante as atividades práticas.
 
-**[🚀 Start Workshop →](https://OWNER.github.io/REPO/)**
+**[🚀 Iniciar Workshop →](https://OWNER.github.io/REPO/)**
 
-> Update links after publishing your fork/repo.
+> Atualize o link acima para o endereço publicado do seu repositório.
 
-## Starter Scope
+## Objetivo do projeto
 
-The app includes only:
+Este projeto foi desenhado para servir como base oficial do workshop, equilibrando simplicidade de início com estrutura real de aplicação para evolução incremental.
 
-1. Initial Pokémon fetch
-2. Search by name/id
-3. Card grid + selection state
-4. Pagination ("Load more")
+## O que já vem pronto
 
-Everything else is built during the lab (favorites, random discovery, team builder, sharing, etc).
+1. Carregamento inicial de Pokémons
+2. Busca por nome ou ID
+3. Grid de cards com estado de seleção
+4. Paginação com "Carregar mais"
 
-## Tech Stack
+As funcionalidades avançadas (favoritos, descoberta aleatória, team builder, compartilhamento etc.) são implementadas ao longo do workshop.
+
+## Stack
 
 - Next.js 15
 - TypeScript
 - Tailwind CSS
 - PokeAPI
 
-## Getting Started
+## Setup local
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Acesse [http://localhost:3000](http://localhost:3000).
 
-## Workshop Docs
+## Materiais do workshop
 
 ```bash
 npm run serve-docs
 ```
 
-Then open `http://localhost:4000/docs/`.
+Depois, abra `http://localhost:4000/docs/`.
 
-## Project Structure
+## Estrutura do projeto
 
 ```text
 pokedex/

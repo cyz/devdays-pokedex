@@ -24,6 +24,9 @@ Antes de escrever qualquer código de implementação, defina o comportamento es
    - `getCoverageGaps(team: Pokemon[]): string[]` — returns types NOT covered by any team member
    Write thorough tests using mock Pokémon data. Do NOT implement the functions yet.
    ```
+   
+   > 💡 **Dica de TypeScript:** A interface `Pokemon` em `src/lib/types.ts` é complexa. Ao escrever os mocks de teste, você ou o agente podem usar coerção de tipo (por exemplo, `const mockPoke = { id: 1, name: 'bulbasaur', types: [...] } as Pokemon`) para simplificar a criação de dados de testes sem a necessidade de definir todas as propriedades aninhadas da API.
+
 2. Revise o arquivo de testes gerado — todos os limites e casos de borda estão cobertos?
 3. Execute os testes (eles devem **falhar** — e isso é totalmente esperado neste momento!):
    ```bash

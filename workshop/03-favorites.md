@@ -43,10 +43,10 @@ Muitas vezes os usuários só querem descobrir algo novo e divertido.
    ```
    Add a "🎲 Random" button to the Header. Clicking it should:
    - Pick a random Pokémon from the currently loaded list
-   - Open it in the detail panel (same as clicking a card)
+   - Highlight/select the Pokémon (same behavior as clicking a card)
    - If no Pokémon are loaded, pick a random ID between 1-1025 and fetch it
    ```
-2. Teste o botão — clique em "Random" múltiplas vezes e certifique-se de que ele abre um Pokémon diferente a cada clique
+2. Teste o botão — clique em "Random" múltiplas vezes e certifique-se de que ele seleciona um Pokémon diferente a cada clique
 
 ✅ **Resultado:** Um recurso simples e encantador de descoberta com apenas um clique.
 
@@ -60,7 +60,7 @@ Agora que temos esses dois novos recursos lógicos, vamos salvar uma habilidade 
 
 1. Envie o prompt:
    ```
-   /create-skill for testing Pokémon features — favorites, filters, the detail panel, and the random button. The skill should open localhost:3000, systematically test each feature, and report any bugs or UX issues.
+   /create-skill for testing Pokémon features — favorites, filters, and the random button. The skill should open localhost:3000, systematically test each feature, and report any bugs or UX issues.
    ```
 2. Execute a nova habilidade enviando o prompt:
    ```
