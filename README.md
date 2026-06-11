@@ -2,13 +2,9 @@
 
 Projeto base em **Next.js + TypeScript** para o workshop de agentes, com uma Pokédex funcional e espaço preparado para evolução durante as atividades práticas.
 
-**[🚀 Iniciar Workshop →](https://OWNER.github.io/REPO/)**
+**[🚀 Iniciar Workshop →](https://cyz.github.io/devdays-pokedex/index.html)**
 
 > Atualize o link acima para o endereço publicado do seu repositório.
-
-## Objetivo do projeto
-
-Este projeto foi desenhado para servir como base oficial do workshop, equilibrando simplicidade de início com estrutura real de aplicação para evolução incremental.
 
 ## O que já vem pronto
 

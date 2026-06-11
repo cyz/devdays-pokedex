@@ -4,7 +4,7 @@
 
 ---
 
-- [ ] Instalar o VS Code **v1.113+** (sem atualizações pendentes)
+- [ ] Instalar o VS Code **v1.120+** (sem atualizações pendentes)
 
 > **Nível:** Intermediário  
 > **Tecnologias:** Next.js 15 / TypeScript / Tailwind CSS
@@ -15,7 +15,7 @@ Bem-vindo ao **Pokédex Agent Lab** — um laboratório prático onde você irá
 
 ## 📋 Checklist Rápido
 
-- [ ] Ter o VS Code **v1.113+** instalado
+- [ ] Ter o VS Code **v1.120+** instalado
   - [ ] Certifique-se de que as atualizações automáticas não estão desativadas
 - [ ] Estar logado com o GitHub (contas Copilot Free não conseguem usar o agente na nuvem!)
 - [ ] Ter o Git e o Node.js 22+ instalados
