@@ -1,98 +1,99 @@
-# Part 2: Design-First Frontend
+# Parte 2: Frontend Focado em Design
 
-[← Part 1](01-setup.md)
-
----
-
-Now that we've engineered the repo context, let's get creative.
-
-The Pokédex already has a polished dark UI — but you can push it much further. Use Plan Mode to plan a full redesign before touching a single line of code.
+[← Parte 1](01-setup.md)
 
 ---
 
-## 🎨 Task 1: Make It Yours
+Agora que engenhoramos o contexto do repositório, vamos ser criativos!
 
-Plan Mode is the right tool for large, cross-cutting changes. It lets you iterate on the plan (2+ times!) with tweaks and clarifications before any code is written.
+A Pokédex começa com uma interface pequena e básica para que você possa evoluí-la incrementalmente. Use o **Modo de Planejamento (Plan Mode)** para redesenhá-la e expandi-la intencionalmente.
 
-**Steps:**
+---
 
-1. Switch to **Plan Mode** in the Chat panel
-2. Prompt:
+## 🎨 Tarefa 1: Faça do Seu Jeito
+
+O Modo de Planejamento (Plan Mode) é a ferramenta certa para grandes mudanças estruturais. Ele permite que você itinere no plano (2 ou mais vezes!) com ajustes e esclarecimentos antes de qualquer linha de código ser escrita física e diretamente.
+
+**Passos:**
+
+1. Alterne para o **Modo de Planejamento (Plan Mode)** no painel do Chat
+2. Envie o prompt:
    ```
-   Do a full redesign of the Pokédex UI. Make it [YOUR THEME]. Keep all existing functionality — search, filters, detail panel, type chart.
+   Do a full redesign of the Pokédex UI. Make it [YOUR THEME]. Keep the starter functionality (search, card grid, and load more), and prepare component styles for future features.
    ```
-3. **Review the plan carefully** — ask follow-up questions to clarify:
-   - Which components will change?
-   - Which Tailwind utilities or new colors are involved?
-   - Any new dependencies needed?
-4. Tweak the plan at least twice before hitting **Implement**
-5. Open the browser to see the live result
+   *(Substitua `[YOUR THEME]` pelo tema que você escolher na lista abaixo!)*
+3. **Revise o plano cuidadosamente** — faça perguntas adicionais para esclarecer detalhes:
+   - Quais componentes irão mudar?
+   - Quais classes do Tailwind ou novas cores estão envolvidas?
+   - Precisamos de alguma dependência nova?
+4. Ajuste e refine o plano pelo menos duas vezes antes de clicar em **Implement** (Implementar)
+5. Abra o navegador para ver o resultado em tempo real
 
-**Theme Ideas:**
+**Ideias de Temas:**
 
 - Retro Game Boy
-- Cyberpunk Neon City
-- Pixel Arcade Style
-- Pastel Kawaii
-- Vintage Pokémon Cards
-- Brutalist Blocks
-- Space Galaxy Glow
-- Cozy Coffee Shop
-- Anime Bubble Aesthetic
-- Monochrome Newspaper
-- Toybox Primary Colors
-- Minimalist Mono
-- Retro Terminal Green
-- Vaporwave Sunset
-- Notebook Doodle Sketch
-- Paper Card Cutouts
-- Chalkboard Classroom
+- Cyberpunk Neon City (Cyberpunk Neon)
+- Pixel Arcade Style (Fliperama Retro)
+- Pastel Kawaii (Cores Pastel fofas)
+- Vintage Pokémon Cards (Cartas Pokémon Antigas)
+- Brutalist Blocks (Brutalismo Geométrico)
+- Space Galaxy Glow (Galáxia Espacial)
+- Cozy Coffee Shop (Cafeteria Aconchegante)
+- Anime Bubble Aesthetic (Minimalista de Anime)
+- Monochrome Newspaper (Jornal Monocromático)
+- Toybox Primary Colors (Brinquedos Coloridos)
+- Minimalist Mono (Minimalista Moderno)
+- Retro Terminal Green (Terminal Verde Retro)
+- Vaporwave Sunset (Vaporwave Pôr do Sol)
+- Notebook Doodle Sketch (Desenho em Caderno de Rascunho)
+- Paper Card Cutouts (Papel Recortado)
+- Chalkboard Classroom (Lousa de Sala de Aula)
 
-✅ **Result:** The Pokédex has a completely new visual identity.
+✅ **Resultado:** A Pokédex agora tem uma identidade visual completamente nova.
 
 ---
 
-## 📝 Task 2: Keep Instructions Updated
+## 📝 Tarefa 2: Mantenha as Instruções Atualizadas
 
-After a redesign, update instructions so future AI requests match the new design system.
+Após o redesign, atualize as instruções do repositório para que as futuras solicitações da IA estejam alinhadas com o novo sistema de design.
 
-**Steps:**
+**Passos:**
 
-1. In Chat, prompt:
+1. No Chat, envie o prompt:
    ```
    /create-instructions design guide
    ```
-   Or:
+   Ou:
    ```
    Update the workspace instructions to document the new design system: colors, fonts, Tailwind conventions used.
    ```
-2. Review, confirm, **commit and push**
+2. Revise, confirme as alterações, **faça o commit e o push**
 
-> 💡 **Tip:** Outdated instructions mislead the agent. Keep them lean and current.
+> 💡 **Dica:** Instruções desatualizadas podem confundir o agente. Mantenha-as sempre enxutas e atualizadas com suas decisões de desenvolvimento.
 
 ---
 
-## 🐛 Task 3: Dogfood the Redesign
+## 🐛 Tarefa 3: Teste o Novo Design (Dogfooding)
 
-Re-run the dogfooding skill you created in Part 1 to validate the new design.
+Execute novamente a habilidade de testes (dogfooding) que você criou na Parte 1 para validar o novo design.
 
-**Steps:**
+**Passos:**
 
-1. Prompt the skill:
+1. Chame a habilidade com o prompt:
    ```
    Dogfood the app — focus on the new design. Does it feel cohesive? Are there any visual regressions?
    ```
-2. Compare feedback with the earlier report from Part 1
-3. Address any critical issues the agent flags
+2. Compare os feedbacks fornecidos com o primeiro relatório gerado na Parte 1
+3. Corrija quaisquer problemas visuais ou de usabilidade críticos destacados pelo agente
 
-✅ **Result:** The agent validates the redesign and helps you catch visual regressions.
+✅ **Resultado:** O agente valida o redesign e ajuda você a identificar regressões visuais inconvenientes de forma automatizada.
 
 ---
 
-## ✅ Part 2 Complete!
+## ✅ Parte 2 Concluída!
 
-You've learned how to:
-- Use **Plan Mode** for complex, multi-file changes
-- Iterate on plans before implementing
-- Keep workspace instructions updated with design changes
-- Re-run dogfooding to validate redesigns
+Você aprendeu a:
+- Usar o **Modo de Planejamento (Plan Mode)** para mudanças complexas em múltiplos arquivos
+- Iterar e refinar planos detalhados antes da fase de implementação
+- Manter as instruções do repositório atualizadas com as mudanças de design
+- Executar testes automatizados (dogfooding) no navegador para validar novas interfaces lógicas

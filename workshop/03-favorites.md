@@ -1,96 +1,96 @@
-# Part 3: Favorites & Discovery
+# Parte 3: Favoritos e Descoberta
 
-[← Part 2](02-design.md)
-
----
-
-Time to add your first real feature. In this part, you'll implement a **Favorites** system and a **Random Pokémon** button using custom agents and localStorage persistence.
+[← Parte 2](02-design.md)
 
 ---
 
-## ❤️ Task 1: Favorites Feature
+Chegou a hora de adicionar seu primeiro recurso de verdade! Nesta etapa, você irá implementar um sistema de **Favoritos** e um botão de **Pokémon Aleatório** usando agentes customizados e persistência no `localStorage`.
 
-Users should be able to heart-mark any Pokémon and filter to see only their favorites. Favorites should survive page refreshes (localStorage).
+---
 
-**Steps:**
+## ❤️ Tarefa 1: Recurso de Favoritos
 
-1. Switch to **Agent Mode**
-2. Prompt:
+Os usuários devem conseguir marcar qualquer Pokémon com um coração e filtrar a lista para ver apenas os seus favoritos. Os favoritos devem persistir mesmo se recarregarmos a página (`localStorage`).
+
+**Passos:**
+
+1. Mude para o **Modo Agente (Agent Mode)** no painel do Chat
+2. Envie o prompt:
    ```
    Add a favorites feature to the Pokédex:
    - Add a heart/bookmark icon button to each PokemonCard
    - Clicking the icon toggles the Pokémon as a favorite
    - Persist favorites to localStorage (use the Pokémon ID as the key)
-   - Add a "❤️ Favorites" filter button to the FilterBar
+   - Add a "❤️ Favorites" filter button to the app header or a new filter bar component
    - When the favorites filter is active, only show favorited Pokémon
    ```
-3. Let the agent implement across `PokemonCard.tsx`, `FilterBar.tsx`, `PokedexApp.tsx`
-4. Test the feature in the browser: favorite some Pokémon, filter, refresh the page
+3. Deixe o agente implementar a base lógica através dos arquivos `src/app/components/PokemonCard.tsx` e `src/app/components/PokedexApp.tsx` (e criar novos componentes ou arquivos se achar necessário)
+4. Teste a funcionalidade no navegador: adicione alguns Pokémon aos favoritos, aplique o filtro e atualize a página
 
-> 💡 **Tip:** If the agent struggles with the localStorage hook, guide it: *"Create a `useFavorites` custom hook in `lib/useFavorites.ts`"*
+> 💡 **Dica:** Se o agente tiver dificuldades em criar os ganchos do localStorage, guie-o: *"Create a `useFavorites` custom hook in `src/lib/useFavorites.ts`"*
 
-✅ **Result:** Users can favorite Pokémon and see them persisted across reloads.
+✅ **Resultado:** Usuários podem favoritar seus Pokémon e vê-los salvos mesmo após reiniciar a página.
 
 ---
 
-## 🎲 Task 2: Random Pokémon Button
+## 🎲 Tarefa 2: Botão de Pokémon Aleatório
 
-Sometimes users just want to discover something new.
+Muitas vezes os usuários só querem descobrir algo novo e divertido.
 
-**Steps:**
+**Passos:**
 
-1. Prompt:
+1. Envie o prompt no Chat:
    ```
    Add a "🎲 Random" button to the Header. Clicking it should:
    - Pick a random Pokémon from the currently loaded list
    - Open it in the detail panel (same as clicking a card)
    - If no Pokémon are loaded, pick a random ID between 1-1025 and fetch it
    ```
-2. Test it — click Random multiple times, verify it opens different Pokémon each time
+2. Teste o botão — clique em "Random" múltiplas vezes e certifique-se de que ele abre um Pokémon diferente a cada clique
 
-✅ **Result:** A delightful discovery feature with a single button click.
+✅ **Resultado:** Um recurso simples e encantador de descoberta com apenas um clique.
 
 ---
 
-## 🤖 Task 3: Create a Pokémon Testing Agent
+## 🤖 Tarefa 3: Criar um Agente de Testes de Pokémon
 
-Now that you have two new features, let's save a custom agent to test Pokémon features specifically.
+Agora que temos esses dois novos recursos lógicos, vamos salvar uma habilidade customizada de IA para testá-los especificamente.
 
-**Steps:**
+**Passos:**
 
-1. Prompt:
+1. Envie o prompt:
    ```
    /create-skill for testing Pokémon features — favorites, filters, the detail panel, and the random button. The skill should open localhost:3000, systematically test each feature, and report any bugs or UX issues.
    ```
-2. Run the skill:
+2. Execute a nova habilidade enviando o prompt:
    ```
    Use the Pokémon testing skill to validate the new favorites and random features
    ```
-3. Review the agent's report and fix any issues it finds
+3. Leia o relatório do agente e peça para ele corrigir qualquer bug ou detalhe de usabilidade que ele encontrar
 
-> 💡 **Think about:** What other reusable testing agents could you create for your real projects?
+> 💡 **Pense sobre:** Quais outros agentes lógicos de testes você poderia criar para seus projetos de trabalho no dia a dia?
 
 ---
 
-## 🔍 Task 4 (Bonus): Search Improvements
+## 🔍 Tarefa 4 (Bônus): Melhorias na Busca
 
-The current search only filters already-loaded Pokémon. Can we do better?
+A busca atual apenas filtra Pokémon que já foram carregados na memória. Podemos fazer melhor?
 
-**Steps:**
+**Passos:**
 
-1. Prompt (in **Plan Mode** first):
+1. Envie o prompt (mude para o **Modo de Planejamento / Plan Mode** primeiro):
    ```
    Improve the search: if the search query doesn't match any loaded Pokémon, automatically fetch from the PokeAPI by name or ID and add the result to the list.
    ```
-2. Review the plan — is the approach sound? What are the edge cases?
-3. Implement and test with Pokémon names that aren't in the first 40 loaded
+2. Revise o plano sugerido — a estratégia é boa? Quais são os casos extremos (edge cases)?
+3. Implemente e teste buscando por um Pokémon por nome que não apareceu nas primeiras 40 posições
 
 ---
 
-## ✅ Part 3 Complete!
+## ✅ Parte 3 Concluída!
 
-You've learned how to:
-- Implement localStorage-backed features using custom hooks
-- Add discovery features (random Pokémon)
-- Create domain-specific custom testing agents
-- Use Plan Mode to reason through feature complexity before coding
+Você aprendeu a:
+- Implementar recursos que interagem com o `localStorage` usando hooks personalizados
+- Adicionar recursos de descoberta de elementos (como Pokémon aleatório)
+- Criar agentes de testes customizados dedicados ao domínio da aplicação
+- Usar o Modo de Planejamento para estruturar e prever a complexidade de um recurso antes de codificar

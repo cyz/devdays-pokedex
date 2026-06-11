@@ -1,128 +1,128 @@
-# Part 1: Setup & Context Engineering
+# Parte 1: Configuração e Engenharia de Contexto
 
-[← Overview](00-overview.md)
-
----
-
-In this section, you'll set up your development environment and teach GitHub Copilot about your codebase.
+[← Visão Geral](00-overview.md)
 
 ---
 
-## 🔧 Initial Setup
+Nesta seção, você configurará seu ambiente de desenvolvimento e ensinará o GitHub Copilot sobre sua base de código.
 
-### Step 1: Create Your Repository (Required)
+---
 
-1. Open the workshop repository on GitHub
-2. Click **Use this template** → **Create a new repository**
-   - Name: `my-pokedex`
-   - Visibility: **Public**
-3. ✅ Your own Pokédex repo is ready!
+## 🔧 Configuração Inicial
 
-### Step 2: Enable GitHub Pages
+### Passo 1: Criar Seu Repositório (Obrigatório)
 
-1. Go to your repo's **Settings** → **Pages**
-2. Under "Build and deployment", change *Deploy from a branch* to **GitHub Actions**
-3. Commit any change to trigger the first deploy
-4. ✅ The workshop docs will be live at: `https://{username}.github.io/{repo-name}/`
+1. Abra o repositório do workshop no GitHub
+2. Clique em **Use this template** (Usar este modelo) → **Create a new repository** (Criar um novo repositório)
+   - Nome: `my-pokedex`
+   - Visibilidade: **Public** (Público)
+3. ✅ Seu próprio repositório Pokédex está pronto!
 
-### Step 3: Choose How You'll Develop
+### Passo 2: Ativar o GitHub Pages
 
-#### Option A: Clone locally in VS Code
+1. Vá em **Settings** (Configurações) → **Pages** (Páginas) no seu repositório
+2. Sob a seção "Build and deployment", mude *Deploy from a branch* para **GitHub Actions**
+3. Faça commit de qualquer alteração para disparar o primeiro deploy
+4. ✅ A documentação do workshop estará disponível em: `https://{seu-usuario-github}.github.io/{nome-do-repositorio}/`
 
-1. Open VS Code
-2. Run: `Git: Clone` → `Clone from GitHub`
-3. Select your new repository
-4. Install recommended extensions (notification will appear)
+### Passo 3: Escolha Como Desenvolver
 
-#### Option B: Create a Codespace
+#### Opção A: Clonar localmente no VS Code
 
-1. Open your repository on GitHub
-2. Click **Code** → **Codespaces** → **Create codespace on main**
-3. ✅ Codespace starts with your repo and VS Code in the browser.
+1. Abra o VS Code
+2. Execute o comando: `Git: Clone` → `Clone from GitHub`
+3. Selecione seu novo repositório
+4. Instale as extensões recomendadas (uma notificação aparecerá para você aceitar)
 
-### Step 4: Run the App
+#### Opção B: Criar um Codespace
 
-Open a terminal and run:
+1. Abra seu repositório no GitHub
+2. Clique no botão **Code** (Código) → **Codespaces** → **Create codespace on main** (Criar codespace na main)
+3. ✅ O Codespace iniciará com seu repositório e uma versão do VS Code rodando direto no navegador.
+
+### Passo 4: Rodar o Aplicativo
+
+Abra um terminal e execute:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) and explore the app.  
-✅ **Success:** The Pokédex loads, you can search and filter Pokémon, click cards to see details.
+Abra [http://localhost:3000](http://localhost:3000) e explore o app.  
+✅ **Sucesso:** O aplicativo inicial da Pokédex foi carregado! Você pode pesquisar Pokémon por nome ou ID e carregar mais itens.
 
-Keep this workshop guide open (📌 **Pin the tab**).
+Mantenha este guia do workshop aberto (📌 **Fixe a aba / Pin tab**).
 
 ---
 
-## 📚 Understanding Context Engineering
+## 📚 Entendendo Engenharia de Contexto
 
-Context engineering is how you teach AI about your specific codebase. This makes Copilot's suggestions more accurate and relevant to your project.
+Engenharia de contexto é o processo de ensinar a IA sobre sua base de código específica. Isso faz com que as sugestões do Copilot sejam muito mais precisas e relevantes para o seu projeto.
 
-### Task 1: Auto-generate Instructions
+### Tarefa 1: Gerar Instruções Automaticamente
 
-Instructions guide all agentic interactions, making them more efficient and reliable.
+As instruções guiam todas as interações do agente, tornando-as mais eficientes e confiáveis.
 
-**Steps:**
+**Passos:**
 
-1. Open the Chat panel in Agent mode
-2. Run prompt:
+1. Abra o painel do Chat no modo Agente (Agent Mode)
+2. Execute o prompt:
    ```
    /init
    ```
-   - While the agent analyzes the codebase, move on to Task 2 in a new chat
-3. When `/init` finishes, review the generated `.github/copilot-instructions.md`
-   - Is it concise? Not too verbose?
-   - Optional follow-up:
+   - Enquanto o agente analisa o projeto, siga para a Tarefa 2 em uma nova janela de conversa (chat)
+3. Quando o comando `/init` terminar, revise o arquivo gerado em `.github/copilot-instructions.md`
+   - O arquivo está conciso? Não está prolixo ou longo demais?
+   - Refinamento opcional:
      ```
      Compress it down and add a mandatory development checklist [ ] at the top (lint, build)
      ```
-4. **Apply** the changes and commit
+4. **Aplique** as alterações e faça o commit
 
-✅ **Result:** All future requests will have a context map of the workspace.
+✅ **Resultado:** Todas as consultas futuras terão um mapa de contexto do seu espaço de trabalho.
 
 ---
 
-### Task 2: Dogfooding with the Browser Agent
+### Tarefa 2: Testes de Experiência (Dogfooding) com o Agente Navegador
 
-The agent can open your running app in the built-in browser and actually interact with it.
+O agente é capaz de abrir seu aplicativo em execução no navegador integrado e interagir diretamente com ele.
 
-**Steps:**
+**Passos:**
 
-1. Make sure `npm run dev` is running
-2. In Chat (Agent mode), prompt:
+1. Certifique-se de que o comando `npm run dev` está rodando
+2. No Chat (em modo Agente / Agent Mode), envie o prompt:
    ```
    Open the app at localhost:3000 in the browser. Test it like a critical user and write a detailed report on usability, missing features, and bugs.
    ```
-3. Watch the agent launch the browser, click through the app, and generate a report
-4. Save the skill:
+3. Assista ao agente iniciar o navegador, clicar pelo aplicativo e gerar um relatório completo
+4. Salve como uma habilidade reutilizável:
    ```
    /create-skill for dogfooding this app
    ```
 
-✅ **Result:** You have a reusable dogfooding skill that tests the live app.
+✅ **Resultado:** Você tem uma habilidade de dogfooding reutilizável que testa o seu aplicativo em tempo real.
 
-> 💡 **Context engineering insight:** The agent needs hands-on context — running the app, seeing the UI, clicking through flows — to truly understand how it works. Code alone isn't enough.
-
----
-
-### Task 3: Tour the Repo Customizations
-
-**Steps:**
-
-1. Open the Customization panel: `Chat: Open Customizations (Preview)`
-2. Browse the auto-generated instructions and any existing skills
-3. Look at how the project structure is described
-
-> 💡 **Think about:** What conventions from your own real projects could become instructions or skills?
+> 💡 **Lição sobre engenharia de contexto:** O agente precisa de contexto prático — rodar o app, ver a interface, clicar nos fluxos — para realmente entender como ele funciona. Apenas olhar o código estático muitas vezes não é suficiente.
 
 ---
 
-## ✅ Part 1 Complete!
+### Tarefa 3: Explorar os Ajustes Customizados do Repositório
 
-You've learned how to:
-- Set up the development environment
-- Generate and refine workspace instructions with `/init`
-- Dogfood your app using the agent's built-in browser
-- Create and save reusable custom skills
+**Passos:**
+
+1. Abra o painel de Customizações: `Chat: Open Customizations (Preview)`
+2. Navegue pelas instruções geradas automaticamente e por eventuais habilidades salvas
+3. Analise como a estrutura do projeto está descrita
+
+> 💡 **Pense sobre:** Quais convenções dos seus projetos reais poderiam ser descritas como instruções ou habilidades reutilizáveis?
+
+---
+
+## ✅ Parte 1 Concluída!
+
+Você aprendeu a:
+- Configurar seu ambiente de desenvolvimento
+- Gerar e refinar instruções de espaço de trabalho usando `/init`
+- Fazer testes de experiência (dogfooding) em seu aplicativo com suporte ao navegador
+- Criar e salvar habilidades customizadas reutilizáveis

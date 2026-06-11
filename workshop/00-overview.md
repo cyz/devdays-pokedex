@@ -1,64 +1,64 @@
-# 🔴 VS Code GitHub Copilot Agent Lab — Pokédex Edition
+# 🔴 VS Code GitHub Copilot Agent Lab — Edição Pokédex
 
-[📚 Quick Reference](GUIDE.md)
-
----
-
-- [ ] Latest VS Code **v1.113+** (no update pending)
-
-> **Level:** Intermediate  
-> **Stack:** Next.js 15 / TypeScript / Tailwind CSS
-
-Welcome to the **Pokédex Agent Lab** — a hands-on workshop where you'll add powerful features to a Pokédex app using VS Code's Agent Mode with GitHub Copilot.
+[📚 Referência Rápida](GUIDE.md)
 
 ---
 
-## 📋 Quick Checklist
+- [ ] Instalar o VS Code **v1.113+** (sem atualizações pendentes)
 
-- [ ] Latest VS Code **v1.113+**
-  - [ ] Make sure updates are not disabled
-- [ ] Signed in with GitHub (Copilot Free cannot run cloud agent!)
-- [ ] Git & Node.js 22+ installed
-- [ ] Chat open and Agent Mode ready
+> **Nível:** Intermediário  
+> **Tecnologias:** Next.js 15 / TypeScript / Tailwind CSS
 
-*Optional*: Use DevContainer or Codespaces.
+Bem-vindo ao **Pokédex Agent Lab** — um laboratório prático onde você irá evoluir um aplicativo inicial básico em uma Pokédex cheia de recursos usando o Modo Agente (Agent Mode) do GitHub Copilot no VS Code.
 
 ---
 
-## 🎯 What You'll Learn
+## 📋 Checklist Rápido
 
-| # | Skill | Description |
-|---|-------|-------------|
-| 1 | **Context Engineering** | Onboard AI to your codebase and workflows |
-| 2 | **Agentic Primitives** | Build an AI-first engineering flow |
-| 3 | **Design-First Development** | Let AI iterate on UI while you guide the vision |
-| 4 | **Multi-Agent Development** | Scale exploration and build features with TDD |
+- [ ] Ter o VS Code **v1.113+** instalado
+  - [ ] Certifique-se de que as atualizações automáticas não estão desativadas
+- [ ] Estar logado com o GitHub (contas Copilot Free não conseguem usar o agente na nuvem!)
+- [ ] Ter o Git e o Node.js 22+ instalados
+- [ ] Abrir o Painel do Chat e deixar o Modo Agente ativo e pronto
 
----
-
-## 📚 Lab Parts
-
-| Part | Title | Description |
-|------|-------|-------------|
-| [**01**](01-setup.md) | Setup & Context Engineering | Clone, run, and teach the AI about your project |
-| [**02**](02-design.md) | Design-First Frontend | Redesign the Pokédex with a creative theme |
-| [**03**](03-favorites.md) | Favorites & Discovery | Add favorites and a random discovery feature |
-| [**04**](04-team-builder.md) | Team Builder | Build a team builder with TDD and design agents |
+*Opcional*: Use DevContainer ou Codespaces.
 
 ---
 
-## 💡 Tips
+## 🎯 O Que Você Vai Aprender
 
-1. Keep the live-updated browser open alongside VS Code  
-2. Commit working code often  
-3. Use Copilot **Checkpoints** and *Undo Last Action* to recover from bad changes  
-4. Re-run the dogfooding skill whenever you make big changes  
+| # | Habilidade | Descrição |
+|---|------------|-----------|
+| 1 | **Engenharia de Contexto** | Como familiarizar a IA com sua base de código e fluxos |
+| 2 | **Primitivas de Agente** | Como construir um fluxo de engenharia centrado na IA |
+| 3 | **Desenvolvimento UI-First** | Deixar a IA iterar sobre a UI enquanto você guia a visão |
+| 4 | **Desenvolvimento Multi-Agente** | Escalar a exploração e codificar novos recursos usando TDD |
 
 ---
 
-## 🔗 Resources
+## 📚 Partes do Laboratório
 
-- [VS Code on YouTube](https://www.youtube.com/code)  
-- [VS Code Copilot Docs](https://code.visualstudio.com/docs/copilot/overview)  
-- [Awesome Copilot](https://github.com/github/awesome-copilot) for more customizations  
-- [PokeAPI Docs](https://pokeapi.co/docs/v2) — the REST API powering this app  
+| Parte | Título | Descrição |
+|-------|--------|-----------|
+| [**01**](01-setup.md) | Configuração e Engenharia de Contexto | Clonar, rodar e ensinar à IA os detalhes do seu projeto |
+| [**02**](02-design.md) | Frontend Focado em Design | Redesenhar e expandir a interface inicial do projeto |
+| [**03**](03-favorites.md) | Favoritos e Descoberta | Adicionar favoritos e recursos de descoberta aleatória |
+| [**04**](04-team-builder.md) | Construtor de Equipes | Desenvolver um montador de times com TDD e agentes de design |
+
+---
+
+## 💡 Dicas
+
+1. Mantenha o navegador aberto ao lado do VS Code para ver o app rodando em tempo real  
+2. Faça commits do seu código funcional frequentemente  
+3. Use os **Checkpoints** e a opção *Undo Last Action* do Copilot para recuperar de mudanças indesejadas  
+4. Execute novamente a habilidade de testes (dogfooding skill) sempre que fizer grandes alterações  
+
+---
+
+## 🔗 Recursos Adicionais
+
+- [VS Code no YouTube](https://www.youtube.com/code)  
+- [Documentação do Copilot no VS Code](https://code.visualstudio.com/docs/copilot/overview)  
+- [Awesome Copilot](https://github.com/github/awesome-copilot) para mais customizações de prompts e regras  
+- [Documentação da PokéAPI](https://pokeapi.co/docs/v2) — a API REST que alimenta este app  
