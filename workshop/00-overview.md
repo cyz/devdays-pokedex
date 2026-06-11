@@ -4,11 +4,6 @@
 
 ---
 
-- [ ] Instalar o VS Code **v1.120+** (sem atualizações pendentes)
-
-> **Nível:** Intermediário  
-> **Tecnologias:** Next.js 15 / TypeScript / Tailwind CSS
-
 Bem-vindo ao **Pokédex Agent Lab** — um laboratório prático onde você irá evoluir um aplicativo inicial básico em uma Pokédex cheia de recursos usando o Modo Agente (Agent Mode) do GitHub Copilot no VS Code.
 
 ---
@@ -30,9 +25,8 @@ Bem-vindo ao **Pokédex Agent Lab** — um laboratório prático onde você irá
 | # | Habilidade | Descrição |
 |---|------------|-----------|
 | 1 | **Engenharia de Contexto** | Como familiarizar a IA com sua base de código e fluxos |
-| 2 | **Primitivas de Agente** | Como construir um fluxo de engenharia centrado na IA |
-| 3 | **Desenvolvimento UI-First** | Deixar a IA iterar sobre a UI enquanto você guia a visão |
-| 4 | **Desenvolvimento Multi-Agente** | Escalar a exploração e codificar novos recursos usando TDD |
+| 2 | **Primitivas de Agente** | Como construir um fluxo de engenharia centrado na IA (Plan Mode) |
+| 3 | **Ciclo TDD com Multi-Agentes** | Orquestrar múltiplos agentes lógicos específicos para implementar recursos robustos |
 
 ---
 
@@ -41,9 +35,9 @@ Bem-vindo ao **Pokédex Agent Lab** — um laboratório prático onde você irá
 | Parte | Título | Descrição |
 |-------|--------|-----------|
 | [**01**](01-setup.md) | Configuração e Engenharia de Contexto | Clonar, rodar e ensinar à IA os detalhes do seu projeto |
-| [**02**](02-design.md) | Frontend Focado em Design | Redesenhar e expandir a interface inicial do projeto |
-| [**03**](03-favorites.md) | Favoritos e Descoberta | Adicionar favoritos e recursos de descoberta aleatória |
-| [**04**](04-team-builder.md) | Construtor de Equipes | Desenvolver um montador de times com TDD e agentes de design |
+| [**02**](02-favorites.md) | Favoritos e Descoberta | Adicionar favoritos usando Modo Plano (Plan Mode) e funções aleatórias |
+| [**03**](03-team-builder.md) | Construtor de Equipes (TDD) | Desenvolver um montador de times e cobertura de tipos usando Orquestração de Agentes TDD |
+| [**04**](04-complete.md) | Conclusão | Revisar tudo o que você construiu e receber sua recompensa! |
 
 ---
 

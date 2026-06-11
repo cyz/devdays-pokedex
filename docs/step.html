@@ -54,10 +54,9 @@
             { id: 'guide',           file: 'GUIDE.md',           title: 'Referência Rápida',           number: '📚' },
             { id: '00-overview',     file: '00-overview.md',     title: 'Visão Geral & Checklist',     number: '00' },
             { id: '01-setup',        file: '01-setup.md',        title: 'Configuração e Contexto',     number: '01' },
-            { id: '02-design',       file: '02-design.md',       title: 'Frontend Focado em Design',    number: '02' },
-            { id: '03-favorites',    file: '03-favorites.md',    title: 'Favoritos e Descoberta',      number: '03' },
-            { id: '04-team-builder', file: '04-team-builder.md', title: 'Montador de Equipes',           number: '04' },
-            { id: '05-complete',     file: '05-complete.md',     title: '🎉 Concluído!',                 number: '🎉' },
+            { id: '02-favorites',    file: '02-favorites.md',    title: 'Favoritos e Descoberta',      number: '02' },
+            { id: '03-team-builder', file: '03-team-builder.md', title: 'Montador de Equipes',           number: '03' },
+            { id: '04-complete',     file: '04-complete.md',     title: '🎉 Concluído!',                 number: '🎉' },
         ];
 
         // Use relative paths locally, GitHub raw in production (GitHub Pages)
@@ -296,7 +295,13 @@
                 setupInteractiveCheckboxes(step.id);
                 setupCodeBlockCopyButtons();
 
-                if (step.id === '05-complete') {
+                // Add event listener to confetti button if it exists
+                const confettiBtn = document.getElementById('confettiBtn');
+                if (confettiBtn) {
+                    confettiBtn.onclick = celebrate;
+                }
+
+                if (step.id === '04-complete') {
                     setTimeout(celebrate, 500);
                 }
             } catch (error) {

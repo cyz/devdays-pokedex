@@ -23,31 +23,26 @@
 /init
 ```
 ```
-Summarize the codebase architecture in a concise README section
+Resuma a arquitetura da base de código em uma seção concisa do README
 ```
 
 ### Testes de Experiência (Dogfooding)
 ```
-Open the running app in the browser and test it like a critical user, then write a report
+Abra o aplicativo em http://localhost:3000 no navegador. Teste-o sistematicamente como um usuário crítico e escreva um relatório detalhado.
 ```
 
-### Design
+### Funcionalidades (Modo Plano)
 ```
-Switch to Plan mode: do a full redesign with a [TEMA] aesthetic. Keep the existing functionality.
-```
-
-### Funcionalidades
-```
-Add a favorites feature: users can click a heart on any Pokémon card to save it to localStorage. Add a "Favorites" filter button to the header or to a new filter bar component.
+Ative o Modo Plano (Plan Mode) para planejar e implementar um recurso de favoritos na Pokédex salvando no localStorage e criando filtros adequados.
 ```
 
 ```
-Add a "Random Pokémon" button to the header that highlights or opens a random Pokémon from the loaded list.
+Adicione um botão "🎲 Aleatório" (Random) ao cabeçalho (Header) que escolha e destaque um Pokémon aleatório da lista carregada atualmente.
 ```
 
-### TDD (Test-Driven Development)
+### Orquestração TDD (Agentes Customizados)
 ```
-Write tests first for the team builder utility — a function that takes an array of Pokémon and returns the type coverage gaps (types with no coverage).
+@TDD Supervisor: Crie o módulo utilitário do construtor de equipes em `src/lib/teamUtils.ts` (addToTeam, removeFromTeam, getTypeCoverage, getCoverageGaps) e gerencie o ciclo TDD com testes e implementação de forma autônoma.
 ```
 
 ## Dicas do Copilot
@@ -55,8 +50,7 @@ Write tests first for the team builder utility — a function that takes an arra
 - 🔁 **Itere sobre os planos** — Sempre ajuste o plano gerado pelo menos 2 vezes antes de clicar em implementar  
 - 📌 **Fixe este guia** — Clique com o botão direito na aba → clicar em Fixar (Pin)  
 - ⏪ **Checkpoints** — O Copilot cria pontos de restauração automaticamente antes de cada alteração; use a opção *Undo Last Action* para desfazer erros  
-- 🌐 **Navegador Integrado** — O Copilot consegue abrir `localhost:3000` na própria janela ou em background e interagir de verdade com cliques na sua interface  
-- 🔀 **Agentes em Paralelo** — Siga abrindo múltiplas janelas paralelas de chat para focar em tarefas independentes  
+- 🌐 **Navegador Integrado** — O Copilot consegue abrir `localhost:3000` na própria janela ou em background e interagir de verdade com cliques na sua interface    
 
 ## Estrutura do Projeto
 

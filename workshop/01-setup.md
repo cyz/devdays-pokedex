@@ -12,7 +12,7 @@ Nesta seção, você configurará seu ambiente de desenvolvimento e ensinará o 
 
 ### Passo 1: Criar Seu Repositório (Obrigatório)
 
-1. Abra o repositório do workshop no GitHub
+1. [Abra o repositório do workshop no GitHub](https://github.com/cyz/devdays-pokedex)
 2. Clique em **Use this template** (Usar este modelo) → **Create a new repository** (Criar um novo repositório)
    - Nome: `my-pokedex`
    - Visibilidade: **Public** (Público)
@@ -76,7 +76,7 @@ As instruções guiam todas as interações do agente, tornando-as mais eficient
    - O arquivo está conciso? Não está prolixo ou longo demais?
    - Refinamento opcional:
      ```
-     Compress it down and add a mandatory development checklist [ ] at the top (lint, build)
+     Reduza o tamanho dele e adicione uma lista de verificação (checklist) de desenvolvimento obrigatória [ ] no topo (lint, build)
      ```
 4. **Aplique** as alterações e faça o commit
 
@@ -93,12 +93,16 @@ O agente é capaz de abrir seu aplicativo em execução no navegador integrado e
 1. Certifique-se de que o comando `npm run dev` está rodando
 2. No Chat (em modo Agente / Agent Mode), envie o prompt:
    ```
-   Open the app at localhost:3000 in the browser. Test it like a critical user and write a detailed report on usability, missing features, and bugs.
+   Abra o aplicativo em http://localhost:3000 no navegador. Teste-o sistematicamente como um usuário crítico:
+   1. Faça buscas por termo exato, termo parcial e por número de ID.
+   2. Interaja com a paginação clicando no botão "Carregar Mais" para ver se novos Pokémon aparecem de forma consistente.
+   3. Teste a abertura e fechamento dos detalhes de um Pokémon ao clicar em seu card.
+   4. Gere um relatório detalhado sobre usabilidade, problemas de layout, bugs de carregamento e liste as principais funcionalidades vitais que estão ausentes.
    ```
 3. Assista ao agente iniciar o navegador, clicar pelo aplicativo e gerar um relatório completo
 4. Salve como uma habilidade reutilizável:
    ```
-   /create-skill for dogfooding this app
+   /create-skill para dogfooding deste aplicativo
    ```
 
 ✅ **Resultado:** Você tem uma habilidade de dogfooding reutilizável que testa o seu aplicativo em tempo real.
