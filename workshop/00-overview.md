@@ -1,5 +1,3 @@
-# 🔴 VS Code GitHub Copilot Agent Lab — Edição Pokédex
-
 [📚 Referência Rápida](GUIDE.md)
 
 ---
