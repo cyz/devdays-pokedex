@@ -16,11 +16,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "GitHub.copilot",
-        "GitHub.copilot-chat",
         "dbaeumer.vscode-eslint",
-        "bradlc.vscode-tailwindcss",
-        "github.vscode-github-actions"
+        "bradlc.vscode-tailwindcss"
       ]
     }
   }
