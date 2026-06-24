@@ -16,7 +16,6 @@ export default function PokedexApp({ initialPokemon, totalCount }: Props) {
   const [offset, setOffset] = useState(initialPokemon.length);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
-  const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const loadMore = useCallback(async () => {
     if (loading || offset >= totalCount) return;
@@ -39,7 +38,7 @@ export default function PokedexApp({ initialPokemon, totalCount }: Props) {
   }, [pokemon, search]);
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-[#0d0e1a]">
+    <div className="flex h-screen flex-col overflow-hidden bg-[#090a0f] text-slate-100">
       <Header
         search={search}
         onSearch={setSearch}
@@ -47,40 +46,38 @@ export default function PokedexApp({ initialPokemon, totalCount }: Props) {
         totalCount={totalCount}
       />
 
-      <main className="flex-1 overflow-y-auto p-4">
-        {filteredPokemon.length === 0 ? (
-          <div className="flex h-40 items-center justify-center text-sm text-slate-500">
-            No Pokémon found.
-          </div>
-        ) : (
-          <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))' }}>
-            {filteredPokemon.map((entry) => (
-              <PokemonCard
-                key={entry.id}
-                pokemon={entry}
-                isSelected={selectedId === entry.id}
-                onClick={() => setSelectedId((current) => (current === entry.id ? null : entry.id))}
-              />
-            ))}
-          </div>
-        )}
+      <main className="relative flex-1 overflow-y-auto px-4 py-5 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,208,48,0.16),transparent_32%),radial-gradient(circle_at_top_right,rgba(104,144,240,0.14),transparent_30%)]" />
 
-        {!search.trim() && offset < totalCount && (
-          <div className="mt-6 flex flex-col items-center gap-2">
-            <button
-              onClick={loadMore}
-              disabled={loading}
-              className="rounded-lg bg-blue-600 px-6 py-2 text-sm text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
-            >
-              {loading ? 'Loading…' : 'Load more'}
-            </button>
-          </div>
-        )}
+        <section className="relative mx-auto flex w-full max-w-7xl flex-col gap-5">
+          {filteredPokemon.length === 0 ? (
+            <div className="flex min-h-64 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] px-6 text-center shadow-2xl shadow-black/20">
+              <p className="text-sm font-semibold text-slate-200">No Pokémon found</p>
+              <p className="mt-2 max-w-sm text-xs leading-5 text-slate-500">
+                Try another name or Pokédex number to continue browsing the current collection.
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-4 sm:gap-5" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))' }}>
+              {filteredPokemon.map((entry) => (
+                <PokemonCard key={entry.id} pokemon={entry} />
+              ))}
+            </div>
+          )}
+
+          {!search.trim() && offset < totalCount && (
+            <div className="flex justify-center pb-6 pt-2">
+              <button
+                onClick={loadMore}
+                disabled={loading}
+                className="rounded-full border border-white/10 bg-white/10 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:border-white/20 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-yellow-300/70 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {loading ? 'Loading...' : 'Load more'}
+              </button>
+            </div>
+          )}
+        </section>
       </main>
-
-      <footer className="border-t border-[#1e2038] bg-[#0a0b15] px-4 py-2 text-[11px] text-slate-500">
-        Starter scope: search, card selection, and pagination.
-      </footer>
     </div>
   );
 }

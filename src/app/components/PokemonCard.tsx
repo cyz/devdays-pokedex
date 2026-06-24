@@ -4,54 +4,60 @@ import { TYPE_COLORS } from '@/lib/constants';
 
 interface Props {
   pokemon: Pokemon;
-  isSelected?: boolean;
-  onClick?: () => void;
 }
 
-export default function PokemonCard({
-  pokemon,
-  isSelected = false,
-  onClick,
-}: Props) {
-  const spriteUrl = pokemon.sprites.front_default ?? pokemon.sprites.other['official-artwork'].front_default;
+export default function PokemonCard({ pokemon }: Props) {
+  const spriteUrl = pokemon.sprites.other['official-artwork'].front_default ?? pokemon.sprites.front_default;
+  const primaryType = pokemon.types[0]?.type.name;
+  const accentColor = TYPE_COLORS[primaryType ?? ''] ?? '#94a3b8';
 
   return (
     <div
-      onClick={onClick}
-      className={`relative rounded-xl p-3 cursor-pointer select-none transition-all duration-150 hover:scale-[1.02] ${
-        isSelected
-          ? 'bg-[#1a2040] border border-blue-500 shadow-lg shadow-blue-500/20'
-          : 'bg-[#1a1b2e] border border-[#252640] hover:border-[#353760]'
-      }`}
+      className="group relative overflow-hidden rounded-3xl border bg-[#12131b]/95 p-4 shadow-xl shadow-black/20 transition duration-200 hover:-translate-y-1 hover:shadow-2xl focus-within:ring-2 focus-within:ring-white/40"
+      style={{
+        borderColor: `${accentColor}55`,
+        background: `linear-gradient(160deg, ${accentColor}20 0%, rgba(18, 19, 27, 0.96) 36%, rgba(10, 11, 16, 0.98) 100%)`,
+      }}
     >
-      <div className="mb-1 flex items-start justify-between">
-        <span className="text-[10px] text-slate-600 font-mono">#{String(pokemon.id).padStart(3, '0')}</span>
-        <span className="text-[10px] uppercase tracking-wider text-slate-500">Starter</span>
+      <div
+        className="pointer-events-none absolute left-1/2 top-8 h-28 w-28 -translate-x-1/2 rounded-full opacity-40 blur-2xl transition duration-200 group-hover:opacity-60"
+        style={{ backgroundColor: accentColor }}
+      />
+
+      <div className="relative flex items-start justify-between">
+        <span className="font-mono text-[11px] font-semibold text-slate-400">#{String(pokemon.id).padStart(4, '0')}</span>
+        {primaryType && (
+          <span
+            className="rounded-full border px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white/90"
+            style={{ borderColor: `${accentColor}80`, backgroundColor: `${accentColor}33` }}
+          >
+            {primaryType}
+          </span>
+        )}
       </div>
 
-      <div className="flex justify-center items-center h-24 mb-2">
+      <div className="relative my-3 flex h-32 items-center justify-center">
         {spriteUrl ? (
           <Image
             src={spriteUrl}
             alt={pokemon.name}
-            width={96}
-            height={96}
-            className="object-contain"
-            style={{ imageRendering: 'pixelated' }}
+            width={132}
+            height={132}
+            className="h-32 w-32 object-contain drop-shadow-[0_18px_22px_rgba(0,0,0,0.45)] transition duration-200 group-hover:scale-105"
             unoptimized
           />
         ) : (
-          <div className="w-24 h-24 flex items-center justify-center text-slate-700 text-3xl">?</div>
+          <div className="flex h-28 w-28 items-center justify-center rounded-full border border-white/10 bg-white/5 text-4xl text-slate-700">?</div>
         )}
       </div>
 
-      <p className="text-center text-sm font-semibold text-slate-200 capitalize mb-1.5">{pokemon.name}</p>
+  <p className="relative text-center text-lg font-bold capitalize leading-tight text-slate-50">{pokemon.name}</p>
 
-      <div className="flex justify-center gap-1 flex-wrap mb-1.5">
+      <div className="relative mt-3 flex flex-wrap justify-center gap-1.5">
         {pokemon.types.map(({ type }) => (
           <span
             key={type.name}
-            className="px-2 py-0.5 rounded text-[10px] font-bold text-white capitalize"
+            className="rounded-full px-2.5 py-1 text-[10px] font-bold capitalize text-white shadow-sm shadow-black/20"
             style={{ backgroundColor: TYPE_COLORS[type.name] ?? '#6b7280' }}
           >
             {type.name.charAt(0).toUpperCase() + type.name.slice(1)}

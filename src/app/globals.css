@@ -2,23 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: #090a0f;
+}
+
 body {
-  font-family: sans-serif;
-  background-color: #0d0e1a;
+  margin: 0;
+  font-family: "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #090a0f;
   color: #e2e8f0;
 }
 
+::selection {
+  background: rgba(248, 208, 48, 0.35);
+  color: #fff7cc;
+}
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d0e1a;
+  background: #090a0f;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2d4a;
-  border-radius: 3px;
+  background: #2b2f3f;
+  border: 2px solid #090a0f;
+  border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3d6a;
+  background: #454b62;
 }
