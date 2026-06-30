@@ -50,14 +50,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <script>
-        const steps = [
-            { id: 'guide',           file: 'GUIDE.md',           title: 'Referência Rápida',           number: '📚' },
-            { id: '00-overview',     file: '00-overview.md',     title: 'Visão Geral & Checklist',     number: '00' },
-            { id: '01-setup',        file: '01-setup.md',        title: 'Configuração e Contexto',     number: '01' },
-            { id: '02-favorites',    file: '02-favorites.md',    title: 'Favoritos e Descoberta',      number: '02' },
-            { id: '03-team-builder', file: '03-team-builder.md', title: 'Montador de Equipes',           number: '03' },
-            { id: '04-complete',     file: '04-complete.md',     title: '🎉 Concluído!',                 number: '🎉' },
-        ];
+        const stepsByTrack = {
+            main: [
+                { id: 'guide',           file: 'GUIDE.md',           title: 'Referência Rápida',           number: '📚' },
+                { id: '00-overview',     file: '00-overview.md',     title: 'Visão Geral & Checklist',     number: '00' },
+                { id: '01-setup',        file: '01-setup.md',        title: 'Configuração e Contexto',     number: '01' },
+                { id: '02-favorites',    file: '02-favorites.md',    title: 'Favoritos e Descoberta',      number: '02' },
+                { id: '03-team-builder', file: '03-team-builder.md', title: 'Montador de Equipes',           number: '03' },
+                { id: '04-complete',     file: '04-complete.md',     title: '🎉 Concluído!',                 number: '🎉' },
+            ],
+            sdd: [
+                { id: 'guide',           file: 'sdd/GUIDE.md',        title: 'Referência Rápida',            number: '📚' },
+                { id: '00-overview',     file: 'sdd/00-overview.md',  title: 'Visão Geral do SDD',           number: '00' },
+                { id: '01-fundamentos',  file: 'sdd/01-fundamentos.md', title: 'Fundamentos do SDD',         number: '01' },
+                { id: '02-estrutura',    file: 'sdd/02-estrutura.md', title: 'Estruturando o Contexto',      number: '02' },
+                { id: '03-workflows',    file: 'sdd/03-workflows.md', title: 'Workflows Reutilizáveis',      number: '03' },
+                { id: '04-escala',       file: 'sdd/04-escala.md',    title: 'Escalando com Agentes',        number: '04' },
+                { id: '05-conclusao',    file: 'sdd/05-conclusao.md', title: '🎉 Concluído!',                number: '🎉' },
+            ],
+        };
+
+        const TRACK = (new URLSearchParams(window.location.search).get('track') === 'sdd') ? 'sdd' : 'main';
+        const TRACK_SUFFIX = TRACK === 'sdd' ? '&track=sdd' : '';
+        const steps = stepsByTrack[TRACK];
 
         // Use relative paths locally, GitHub raw in production (GitHub Pages)
         const isLocal = ['localhost', '127.0.0.1', ''].includes(location.hostname) || location.protocol === 'file:';
@@ -93,7 +108,7 @@
             const nav = document.getElementById('stepNav');
             const currentId = getCurrentStepId();
             nav.innerHTML = steps.map(step => `
-                <a href="?step=${step.id}" class="step-link ${step.id === currentId ? 'active' : ''}">
+                <a href="?step=${step.id}${TRACK_SUFFIX}" class="step-link ${step.id === currentId ? 'active' : ''}">
                     <span class="step-number">${step.number}</span>
                     <span>${step.title}</span>
                 </a>
@@ -109,11 +124,11 @@
 
             prevBtn.disabled = idx <= 0;
             nextBtn.disabled = idx >= steps.length - 1;
-            prevBtn.onclick = () => idx > 0 && (window.location.search = `?step=${steps[idx - 1].id}`);
-            nextBtn.onclick = () => idx < steps.length - 1 && (window.location.search = `?step=${steps[idx + 1].id}`);
+            prevBtn.onclick = () => idx > 0 && (window.location.search = `?step=${steps[idx - 1].id}${TRACK_SUFFIX}`);
+            nextBtn.onclick = () => idx < steps.length - 1 && (window.location.search = `?step=${steps[idx + 1].id}${TRACK_SUFFIX}`);
 
             if (idx > 0) {
-                prevLink.href = `?step=${steps[idx - 1].id}`;
+                prevLink.href = `?step=${steps[idx - 1].id}${TRACK_SUFFIX}`;
                 prevLink.textContent = `← ${steps[idx - 1].title}`;
                 prevLink.classList.remove('disabled');
             } else {
@@ -122,7 +137,7 @@
             }
 
             if (idx < steps.length - 1) {
-                nextLink.href = `?step=${steps[idx + 1].id}`;
+                nextLink.href = `?step=${steps[idx + 1].id}${TRACK_SUFFIX}`;
                 nextLink.textContent = `${steps[idx + 1].title} →`;
                 nextLink.classList.remove('disabled');
             } else {
@@ -141,9 +156,9 @@
             md = md.replace(/👉 \*\*\[Continue to[^\n]+/g, '');
             md = md.replace(/👉 \*\*\[Start with[^\n]+/g, '');
 
-            // Convert internal markdown links to step viewer links
-            md = md.replace(/\]\((\d+)-([^)]+)\.md\)/g, '](step.html?step=$1-$2)');
-            md = md.replace(/\]\(GUIDE\.md\)/g, '](step.html?step=guide)');
+            // Convert internal markdown links to step viewer links (preserve track)
+            md = md.replace(/\]\((\d+)-([^)]+)\.md\)/g, `](step.html?step=$1-$2${TRACK_SUFFIX})`);
+            md = md.replace(/\]\(GUIDE\.md\)/g, `](step.html?step=guide${TRACK_SUFFIX})`);
 
             // Handle GitHub-style alerts
             md = md.replace(/>\s*💡\s*\*\*Tip:\*\*/gi, '> **💡 Tip**');
@@ -301,7 +316,7 @@
                     confettiBtn.onclick = celebrate;
                 }
 
-                if (step.id === '04-complete') {
+                if (step.id === '04-complete' || step.id === '05-conclusao') {
                     setTimeout(celebrate, 500);
                 }
             } catch (error) {
@@ -321,9 +336,9 @@
         document.addEventListener('keydown', (e) => {
             const idx = getCurrentStepIndex();
             if (e.key === 'ArrowLeft' && idx > 0) {
-                window.location.search = `?step=${steps[idx - 1].id}`;
+                window.location.search = `?step=${steps[idx - 1].id}${TRACK_SUFFIX}`;
             } else if (e.key === 'ArrowRight' && idx < steps.length - 1) {
-                window.location.search = `?step=${steps[idx + 1].id}`;
+                window.location.search = `?step=${steps[idx + 1].id}${TRACK_SUFFIX}`;
             }
         });
     </script>
