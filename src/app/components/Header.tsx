@@ -5,9 +5,10 @@ interface HeaderProps {
   onSearch: (value: string) => void;
   loadedCount: number;
   totalCount: number;
+  teamCount: number;
 }
 
-export default function Header({ search, onSearch, loadedCount, totalCount }: HeaderProps) {
+export default function Header({ search, onSearch, loadedCount, totalCount, teamCount }: HeaderProps) {
   return (
     <header className="border-b border-white/10 bg-[#090a0f]/95 px-4 py-4 shadow-2xl shadow-black/20 backdrop-blur sm:px-6 lg:px-8">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -37,9 +38,15 @@ export default function Header({ search, onSearch, loadedCount, totalCount }: He
           </div>
         </div>
 
-        <div className="flex shrink-0 items-center justify-between gap-3 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 sm:block sm:text-right">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Loaded</p>
-          <p className="text-sm font-bold text-slate-100">{loadedCount} / {totalCount}</p>
+        <div className="flex shrink-0 items-center justify-between gap-5 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Loaded</p>
+            <p className="text-sm font-bold text-slate-100">{loadedCount} / {totalCount}</p>
+          </div>
+          <div className="text-right">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Team</p>
+            <p className="text-sm font-bold text-slate-100">{teamCount} / 6</p>
+          </div>
         </div>
       </div>
     </header>

@@ -13,6 +13,7 @@ interface Props {
 
 export default function PokedexApp({ initialPokemon, totalCount }: Props) {
   const [pokemon, setPokemon] = useState<Pokemon[]>(initialPokemon);
+  const [team, setTeam] = useState<Pokemon[]>([]);
   const [offset, setOffset] = useState(initialPokemon.length);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
@@ -37,6 +38,18 @@ export default function PokedexApp({ initialPokemon, totalCount }: Props) {
     return pokemon.filter((entry) => entry.name.includes(query) || String(entry.id).includes(query));
   }, [pokemon, search]);
 
+  const capturePokemon = useCallback((selectedPokemon: Pokemon) => {
+    setTeam((currentTeam) => {
+      if (currentTeam.length >= 6 || currentTeam.some((entry) => entry.id === selectedPokemon.id)) {
+        return currentTeam;
+      }
+      return [...currentTeam, selectedPokemon];
+    });
+  }, []);
+
+  const capturedPokemonIds = useMemo(() => new Set(team.map((entry) => entry.id)), [team]);
+  const isTeamFull = team.length >= 6;
+
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-[#090a0f] text-slate-100">
       <Header
@@ -44,6 +57,7 @@ export default function PokedexApp({ initialPokemon, totalCount }: Props) {
         onSearch={setSearch}
         loadedCount={pokemon.length}
         totalCount={totalCount}
+        teamCount={team.length}
       />
 
       <main className="relative flex-1 overflow-y-auto px-4 py-5 sm:px-6 lg:px-8">
@@ -60,7 +74,13 @@ export default function PokedexApp({ initialPokemon, totalCount }: Props) {
           ) : (
             <div className="grid gap-4 sm:gap-5" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))' }}>
               {filteredPokemon.map((entry) => (
-                <PokemonCard key={entry.id} pokemon={entry} />
+                <PokemonCard
+                  key={entry.id}
+                  pokemon={entry}
+                  onCapture={capturePokemon}
+                  isCaptured={capturedPokemonIds.has(entry.id)}
+                  isTeamFull={isTeamFull}
+                />
               ))}
             </div>
           )}

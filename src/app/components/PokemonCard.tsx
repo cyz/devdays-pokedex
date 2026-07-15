@@ -4,9 +4,12 @@ import { TYPE_COLORS } from '@/lib/constants';
 
 interface Props {
   pokemon: Pokemon;
+  onCapture: (pokemon: Pokemon) => void;
+  isCaptured: boolean;
+  isTeamFull: boolean;
 }
 
-export default function PokemonCard({ pokemon }: Props) {
+export default function PokemonCard({ pokemon, onCapture, isCaptured, isTeamFull }: Props) {
   const spriteUrl = pokemon.sprites.other['official-artwork'].front_default ?? pokemon.sprites.front_default;
   const primaryType = pokemon.types[0]?.type.name;
   const accentColor = TYPE_COLORS[primaryType ?? ''] ?? '#94a3b8';
@@ -64,6 +67,15 @@ export default function PokemonCard({ pokemon }: Props) {
           </span>
         ))}
       </div>
+
+      <button
+        type="button"
+        onClick={() => onCapture(pokemon)}
+        disabled={isCaptured || isTeamFull}
+        className="relative mt-4 w-full rounded-full border border-yellow-300/40 bg-yellow-300/20 px-3 py-2 text-xs font-bold uppercase tracking-[0.14em] text-yellow-100 transition hover:border-yellow-200/60 hover:bg-yellow-200/25 focus:outline-none focus:ring-2 focus:ring-yellow-300/70 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-slate-500"
+      >
+        {isCaptured ? 'Captured' : isTeamFull ? 'Team full' : 'Capture'}
+      </button>
     </div>
   );
 }
