@@ -4,8 +4,6 @@ Projeto base em **Next.js + TypeScript** para o workshop de agentes, com uma Pok
 
 **[🚀 Iniciar Workshop →](https://cyz.github.io/devdays-pokedex/index.html)**
 
-> Atualize o link acima para o endereço publicado do seu repositório.
-
 ## O que já vem pronto
 
 1. Carregamento inicial de Pokémons
